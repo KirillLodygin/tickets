@@ -15,7 +15,7 @@ export const TicketsWrappBlock = () => {
     .map((stop) => stop.checkNum)
   const ticketsArr = useAppSelector((state) => state.tickets.ticketsArr).filter((ticket) => {
     return currentStops.length ? currentStops.includes(ticket.stops) : ticket
-  })
+  }).sort((a, b) => (a.price - b.price))
 
   useEffect(() => {
     dispatch(getNewTicketArr())
